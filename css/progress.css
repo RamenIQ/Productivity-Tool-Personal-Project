@@ -1,0 +1,106 @@
+/* Progress section */
+.progress-section {
+  background: #fff;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.progress-stats {
+  font-size: 0.8rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Bar track */
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: #edf2f7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Bar fill */
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #667eea 0%, #48bb78 100%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-fill.complete {
+  background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+}
+
+/* Congratulations banner */
+.congrats-banner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f6ffed 0%, #e6fffa 100%);
+  border: 1.5px solid #68d391;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.congrats-banner.visible {
+  display: flex;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.congrats-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.congrats-text {
+  flex: 1;
+}
+
+.congrats-text strong {
+  display: block;
+  font-size: 1rem;
+  color: #276749;
+  margin-bottom: 2px;
+}
+
+.congrats-text span {
+  font-size: 0.85rem;
+  color: #48bb78;
+}
+
+.congrats-close {
+  font-size: 1.1rem;
+  color: #48bb78;
+  padding: 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.congrats-close:hover {
+  color: #276749;
+}

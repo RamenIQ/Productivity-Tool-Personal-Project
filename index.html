@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Assignment Tracker</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/assignments.css">
+  <link rel="stylesheet" href="css/progress.css">
+  <link rel="stylesheet" href="css/resources.css">
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">Assignment Tracker</h1>
+      <span class="week-label" id="week-label"></span>
+    </header>
+
+    <!-- Add Assignment Form -->
+    <form class="add-form" id="add-form" autocomplete="off">
+      <input
+        type="text"
+        id="assignment-input"
+        placeholder="Add a new assignment..."
+        maxlength="200"
+        aria-label="Assignment title"
+        required
+      >
+      <button type="submit" class="btn-add">+ Add</button>
+    </form>
+
+    <!-- Progress Section -->
+    <section class="progress-section" aria-label="Weekly progress">
+      <div class="progress-header">
+        <span class="progress-label">Weekly Progress</span>
+        <span class="progress-stats" id="progress-stats">No assignments yet</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </section>
+
+    <!-- Congratulations Banner -->
+    <div class="congrats-banner" id="congrats-banner" role="alert">
+      <span class="congrats-icon">🎉</span>
+      <div class="congrats-text">
+        <strong>Congratulations! All done!</strong>
+        <span>You've completed all your assignments for the week.</span>
+      </div>
+      <button class="congrats-close" id="congrats-close" aria-label="Dismiss">✕</button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <div class="empty-icon">📋</div>
+      <div>No assignments yet.<br>Add one above to get started!</div>
+    </div>
+
+    <!-- Assignment List -->
+    <ul class="assignment-list" id="assignment-list" aria-label="Assignments"></ul>
+
+  </div>
+
+  <!-- Scripts (order matters: dependencies first) -->
+  <script src="js/storage.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/assignments.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

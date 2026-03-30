@@ -1,0 +1,96 @@
+.app-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2d3748;
+  letter-spacing: -0.5px;
+}
+
+.week-label {
+  font-size: 0.875rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Add assignment form */
+.add-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.add-form input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #2d3748;
+  background: #fff;
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+.add-form input[type="text"]::placeholder {
+  color: #a0aec0;
+}
+
+.add-form input[type="text"]:focus {
+  border-color: #667eea;
+}
+
+.btn-add {
+  padding: 10px 20px;
+  background: #667eea;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn-add:hover {
+  background: #5a67d8;
+}
+
+.btn-add:active {
+  transform: scale(0.97);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #a0aec0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.empty-state .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+/* Assignment list */
+.assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}

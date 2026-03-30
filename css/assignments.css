@@ -1,0 +1,121 @@
+.assignment-item {
+  background: #fff;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.assignment-item:hover {
+  border-color: #c3d0e8;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+}
+
+.assignment-item.completed {
+  border-color: #c6f6d5;
+  background: #f0fff4;
+}
+
+/* Row */
+.assignment-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  gap: 12px;
+}
+
+/* Custom checkbox */
+.assignment-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e0;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+  outline: none;
+}
+
+.assignment-checkbox:hover {
+  border-color: #667eea;
+}
+
+.assignment-checkbox:checked {
+  background: #48bb78;
+  border-color: #48bb78;
+}
+
+.assignment-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 8px;
+  height: 12px;
+  border: 2.5px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Title */
+.assignment-title {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #2d3748;
+  font-weight: 500;
+  transition: color 0.15s;
+  word-break: break-word;
+}
+
+.assignment-item.completed .assignment-title {
+  color: #68d391;
+  text-decoration: line-through;
+}
+
+/* Action buttons */
+.assignment-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btn-resources {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #667eea;
+  background: #ebf4ff;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn-resources:hover {
+  background: #667eea;
+  color: #fff;
+}
+
+.btn-resources.open {
+  background: #667eea;
+  color: #fff;
+}
+
+.btn-remove {
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fc8181;
+  background: #fff5f5;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-remove:hover {
+  background: #fc8181;
+  color: #fff;
+}
