@@ -7,19 +7,20 @@ function generateId() {
     : Date.now().toString() + Math.random().toString(36).slice(2);
 }
 
-function createAssignment(title) {
+function createAssignment(title, dueDate) {
   return {
     id: generateId(),
     title: title.trim(),
     completed: false,
     createdAt: Date.now(),
+    dueDate: dueDate || null,
     resources: []
   };
 }
 
-function addAssignment(data, title) {
+function addAssignment(data, title, dueDate) {
   if (!title.trim()) return false;
-  data.assignments.push(createAssignment(title));
+  data.assignments.push(createAssignment(title, dueDate));
   saveData(data);
   return true;
 }
@@ -36,6 +37,17 @@ function toggleAssignment(data, id) {
     assignment.completed = !assignment.completed;
     saveData(data);
   }
+}
+
+function isOverdue(assignment) {
+  if (!assignment.dueDate || assignment.completed) return false;
+  const today = new Date().toISOString().split('T')[0];
+  return assignment.dueDate < today;
+}
+
+function formatDueDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
 function renderAssignments(data) {
@@ -57,10 +69,12 @@ function renderAssignments(data) {
     li.dataset.id = assignment.id;
 
     const resourceCount = assignment.resources.length;
-    const resourceLabel = resourceCount > 0
-      ? `Resources (${resourceCount})`
-      : 'Resources';
+    const resourceLabel = resourceCount > 0 ? `Resources (${resourceCount})` : 'Resources';
     const panelOpen = openPanelId === assignment.id;
+
+    const dueBadge = assignment.dueDate
+      ? `<span class="due-badge ${isOverdue(assignment) ? 'overdue' : ''}">Due ${formatDueDate(assignment.dueDate)}</span>`
+      : '';
 
     li.innerHTML = `
       <div class="assignment-row">
@@ -74,6 +88,7 @@ function renderAssignments(data) {
         <label class="assignment-title" for="cb-${assignment.id}">
           ${escapeHtml(assignment.title)}
         </label>
+        ${dueBadge}
         <div class="assignment-actions">
           <button class="btn-resources ${panelOpen ? 'open' : ''}" data-id="${assignment.id}">
             ${escapeHtml(resourceLabel)} ${panelOpen ? '▾' : '▸'}
@@ -91,7 +106,6 @@ function renderAssignments(data) {
     list.appendChild(li);
   });
 
-  // Re-attach event listeners after render
   attachAssignmentListeners(data);
   attachResourceListeners(data);
 }
@@ -125,25 +139,24 @@ function buildResourcePanel(assignment) {
 }
 
 function attachAssignmentListeners(data) {
-  // Checkbox toggles
   document.querySelectorAll('.assignment-checkbox').forEach(cb => {
     cb.addEventListener('change', () => {
       toggleAssignment(data, cb.closest('.assignment-item').dataset.id);
       renderAssignments(data);
       updateProgress(data);
+      renderCalendar(data);
     });
   });
 
-  // Remove buttons
   document.querySelectorAll('.btn-remove').forEach(btn => {
     btn.addEventListener('click', () => {
       removeAssignment(data, btn.dataset.id);
       renderAssignments(data);
       updateProgress(data);
+      renderCalendar(data);
     });
   });
 
-  // Resource panel toggles
   document.querySelectorAll('.btn-resources').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;

@@ -1,0 +1,269 @@
+/* Schedule section */
+.schedule-section {
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.btn-toggle-form {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #667eea;
+  background: #ebf4ff;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-toggle-form:hover {
+  background: #667eea;
+  color: #fff;
+}
+
+/* Add class form (collapsible) */
+.add-class-form-box {
+  display: none;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.add-class-form-box.open {
+  display: block;
+}
+
+.class-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.class-form-row:last-child {
+  margin-bottom: 0;
+}
+
+.class-form-row input[type="text"],
+.class-form-row input[type="time"] {
+  padding: 8px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  color: #2d3748;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.class-form-row input[type="text"]:focus,
+.class-form-row input[type="time"]:focus {
+  border-color: #667eea;
+  background: #fff;
+}
+
+#class-name-input {
+  flex: 1;
+  min-width: 160px;
+}
+
+#class-room {
+  width: 140px;
+}
+
+#class-start, #class-end {
+  width: 130px;
+}
+
+/* Day checkboxes */
+.day-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.day-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  padding: 5px 9px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.day-checkboxes label:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.day-checkboxes input[type="checkbox"] {
+  display: none;
+}
+
+.day-checkboxes label:has(input:checked) {
+  background: #667eea;
+  border-color: #667eea;
+  color: #fff;
+}
+
+/* Color swatches */
+.color-picker {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  outline: 2px solid transparent;
+  transition: outline 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.selected {
+  outline: 2px solid #2d3748;
+  outline-offset: 2px;
+}
+
+/* Form error */
+.class-form-error {
+  font-size: 0.8rem;
+  color: #e53e3e;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Add class submit button */
+.btn-add-class {
+  padding: 8px 16px;
+  background: #667eea;
+  color: #fff;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.15s;
+  align-self: flex-end;
+}
+
+.btn-add-class:hover {
+  background: #5a67d8;
+}
+
+/* Schedule empty state */
+.schedule-empty {
+  text-align: center;
+  padding: 24px;
+  color: #a0aec0;
+  font-size: 0.875rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1.5px dashed #e2e8f0;
+}
+
+/* Class cards */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.class-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-left-width: 4px;
+  border-radius: 9px;
+  padding: 12px 14px;
+  transition: box-shadow 0.15s;
+}
+
+.class-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.class-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.class-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.class-name {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.class-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 3px;
+  font-size: 0.78rem;
+  color: #718096;
+}
+
+.class-days { font-weight: 500; }
+
+.btn-remove-class {
+  font-size: 0.85rem;
+  color: #cbd5e0;
+  padding: 4px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-remove-class:hover {
+  color: #fc8181;
+}
+
+/* Due date badge on assignments */
+.due-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #ebf4ff;
+  color: #667eea;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.due-badge.overdue {
+  background: #fff5f5;
+  color: #e53e3e;
+}

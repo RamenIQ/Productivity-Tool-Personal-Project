@@ -30,12 +30,14 @@
 /* Add assignment form */
 .add-form {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 24px;
 }
 
 .add-form input[type="text"] {
   flex: 1;
+  min-width: 180px;
   padding: 10px 14px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
@@ -51,6 +53,22 @@
 }
 
 .add-form input[type="text"]:focus {
+  border-color: #667eea;
+}
+
+.add-form input[type="date"] {
+  padding: 10px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #4a5568;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+  cursor: pointer;
+}
+
+.add-form input[type="date"]:focus {
   border-color: #667eea;
 }
 

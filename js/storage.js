@@ -4,7 +4,7 @@ function loadData() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultData();
-    return JSON.parse(raw);
+    return migrateData(JSON.parse(raw));
   } catch {
     return defaultData();
   }
@@ -25,8 +25,14 @@ function saveData(data) {
 function defaultData() {
   return {
     weekLabel: getWeekStart(),
-    assignments: []
+    assignments: [],
+    classes: []
   };
+}
+
+function migrateData(data) {
+  if (!data.classes) data.classes = [];
+  return data;
 }
 
 function getWeekStart() {
