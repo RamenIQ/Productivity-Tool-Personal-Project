@@ -63,7 +63,7 @@ ul, ol { list-style: none; }
 /* ============================================================
    APP SHELL
    ============================================================ */
-.app { max-width: 780px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+.app { max-width: 860px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ============================================================
    HEADER
@@ -78,22 +78,22 @@ ul, ol { list-style: none; }
   z-index: 100;
 }
 
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 13px 20px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
 
 .brand { display: flex; align-items: center; gap: 10px; }
 
 .brand-icon {
-  width: 34px; height: 34px;
+  width: 40px; height: 40px;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 17px;
+  font-size: 20px;
   box-shadow: 0 2px 10px rgba(99,102,241,0.38);
   flex-shrink: 0;
 }
 
 .brand-name {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--text);
   letter-spacing: -0.5px;
@@ -114,14 +114,15 @@ ul, ol { list-style: none; }
    TAB NAVIGATION
    ============================================================ */
 .tab-nav {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px);
   display: flex;
   position: sticky;
-  top: 60px;
+  top: 72px;
   z-index: 99;
   border-bottom: 1px solid var(--border);
-  padding: 0 8px;
+  padding: 0 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .tab-btn {
@@ -129,13 +130,13 @@ ul, ol { list-style: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  padding: 11px 4px 13px;
+  gap: 7px;
+  padding: 18px 6px 20px;
   color: var(--text-light);
   transition: color 0.2s var(--ease);
-  font-size: 0.64rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -143,18 +144,18 @@ ul, ol { list-style: none; }
 .tab-btn.active { color: var(--active-tab-color, var(--tasks-color)); }
 
 .tab-icon {
-  width: 19px; height: 19px;
+  width: 26px; height: 26px;
   flex-shrink: 0;
   transition: transform 0.2s var(--spring);
 }
 
-.tab-btn.active .tab-icon { transform: scale(1.18); }
+.tab-btn.active .tab-icon { transform: scale(1.2); }
 
 .tab-indicator {
   position: absolute;
   bottom: 0;
-  height: 3px;
-  border-radius: 3px 3px 0 0;
+  height: 4px;
+  border-radius: 4px 4px 0 0;
   background: var(--tasks-color);
   transition: left 0.3s var(--ease), width 0.3s var(--ease), background 0.25s ease;
   pointer-events: none;
@@ -181,30 +182,30 @@ ul, ol { list-style: none; }
    ============================================================ */
 .tab-hero {
   border-radius: var(--radius);
-  padding: 22px 22px 20px;
-  margin-bottom: 16px;
+  padding: 32px 32px 28px;
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
   color: white;
-  min-height: 140px;
+  min-height: clamp(260px, calc(50vh - 140px), 420px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.hero-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; }
+.hero-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 22px; }
 
 .hero-head { }
-.hero-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
-.hero-sub   { font-size: 0.82rem; color: rgba(255,255,255,0.72); font-weight: 500; margin-top: 2px; }
+.hero-title { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -0.8px; color: #fff; line-height: 1.15; }
+.hero-sub   { font-size: clamp(0.9rem, 1.5vw, 1.05rem); color: rgba(255,255,255,0.75); font-weight: 500; margin-top: 6px; }
 
 .hero-progress {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
-.hero-emoji { font-size: 1.4rem; flex-shrink: 0; }
+.hero-emoji { font-size: clamp(1.8rem, 3vw, 2.4rem); flex-shrink: 0; }
 
 .hero-emoji.bounce {
   animation: bounceEmoji 0.5s var(--spring) both;
@@ -220,7 +221,7 @@ ul, ol { list-style: none; }
 .hero-prog-wrap { flex: 1; }
 
 .hero-prog-track {
-  height: 7px;
+  height: 10px;
   background: rgba(255,255,255,0.22);
   border-radius: 999px;
   overflow: hidden;
@@ -245,27 +246,29 @@ ul, ol { list-style: none; }
 
 .hero-prog-label {
   display: block;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.78);
   font-weight: 600;
-  margin-top: 5px;
+  margin-top: 7px;
+  letter-spacing: 0.2px;
 }
 
 .hero-badges {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .hero-badge {
   background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.28);
   border-radius: 999px;
-  padding: 4px 12px;
-  font-size: 0.78rem;
-  font-weight: 600;
+  padding: 7px 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: #fff;
   backdrop-filter: blur(4px);
+  letter-spacing: 0.2px;
 }
 
 /* Decorative art layer */
@@ -278,8 +281,9 @@ ul, ol { list-style: none; }
 
 .hero-art span {
   position: absolute;
-  opacity: 0.18;
+  opacity: 0.2;
   animation: floatArt 8s ease-in-out infinite;
+  font-size: 3.5rem;
 }
 
 .hero-art span:nth-child(2) { animation-delay: -1.5s; }
@@ -312,7 +316,7 @@ ul, ol { list-style: none; }
   background-size: 28px 28px;
 }
 
-.tasks-art span { font-size: 2.8rem; font-weight: 900; color: rgba(255,255,255,1); }
+.tasks-art span { font-size: 5rem; font-weight: 900; color: rgba(255,255,255,1); }
 
 /* ============================================================
    DIET HERO
@@ -334,7 +338,7 @@ ul, ol { list-style: none; }
   );
 }
 
-.diet-art span { font-size: 2.2rem; }
+.diet-art span { font-size: 3.8rem; }
 
 /* ============================================================
    WORKOUT HERO
@@ -357,7 +361,7 @@ ul, ol { list-style: none; }
   );
 }
 
-.workout-art span { font-size: 2.4rem; }
+.workout-art span { font-size: 4.2rem; }
 
 /* ============================================================
    REMINDERS HERO
@@ -376,7 +380,7 @@ ul, ol { list-style: none; }
   background-size: 20px 20px;
 }
 
-.reminders-art span { font-size: 2.2rem; }
+.reminders-art span { font-size: 3.8rem; }
 
 /* ============================================================
    GOALS HERO — COSMOS
@@ -384,7 +388,7 @@ ul, ol { list-style: none; }
 .goals-hero {
   background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 38%, #312e81 70%, #3730a3 100%);
   box-shadow: 0 8px 32px rgba(49,46,129,0.45);
-  min-height: 165px;
+  min-height: clamp(290px, calc(50vh - 140px), 440px);
 }
 
 .stars-bg {
@@ -419,27 +423,27 @@ ul, ol { list-style: none; }
 }
 
 .hero-quote {
-  font-size: 0.97rem;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-style: italic;
   font-weight: 400;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.93);
   line-height: 1.65;
   position: relative;
   z-index: 1;
-  padding-left: 18px;
-  border-left: 2px solid rgba(255,255,255,0.25);
+  padding-left: 22px;
+  border-left: 3px solid rgba(255,255,255,0.3);
 }
 
 .hero-cite {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
   position: relative;
   z-index: 1;
-  padding-left: 18px;
+  padding-left: 22px;
 }
 
 /* ============================================================
@@ -1219,16 +1223,18 @@ ul, ol { list-style: none; }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 560px) {
-  .header-inner { padding: 11px 14px; }
+@media (max-width: 600px) {
+  .header-inner { padding: 12px 16px; }
   .main-content { padding: 14px 14px 60px; }
-  .tab-label    { font-size: 0.58rem; }
+  .tab-btn      { padding: 14px 4px 16px; gap: 5px; }
+  .tab-icon     { width: 22px; height: 22px; }
+  .tab-label    { font-size: 0.6rem; }
+  .tab-hero     { padding: 22px 18px 18px; }
   .add-form     { gap: 6px; }
   .form-input, .form-select, .btn-add { font-size: 0.875rem; }
   .form-input-date { display: none; }
   .add-form-grid { grid-template-columns: 1fr auto auto; }
   .water-glasses { gap: 5px; }
   .glass-btn { width: 38px; height: 48px; }
-  .hero-title { font-size: 1.2rem; }
-  .hero-quote { font-size: 0.88rem; }
+  .hero-body-goals { padding-bottom: 36px; }
 }
