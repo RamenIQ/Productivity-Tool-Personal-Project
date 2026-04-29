@@ -182,22 +182,22 @@ ul, ol { list-style: none; }
    ============================================================ */
 .tab-hero {
   border-radius: var(--radius);
-  padding: 32px 32px 28px;
+  padding: 22px 26px 20px;
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
   color: white;
-  min-height: clamp(260px, calc(50vh - 140px), 420px);
+  min-height: clamp(160px, 26vh, 230px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.hero-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 22px; }
+.hero-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; }
 
 .hero-head { }
-.hero-title { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -0.8px; color: #fff; line-height: 1.15; }
-.hero-sub   { font-size: clamp(0.9rem, 1.5vw, 1.05rem); color: rgba(255,255,255,0.75); font-weight: 500; margin-top: 6px; }
+.hero-title { font-size: clamp(1.4rem, 2.8vw, 1.8rem); font-weight: 800; letter-spacing: -0.5px; color: #fff; line-height: 1.2; }
+.hero-sub   { font-size: 0.85rem; color: rgba(255,255,255,0.72); font-weight: 500; margin-top: 4px; }
 
 .hero-progress {
   display: flex;
@@ -205,7 +205,7 @@ ul, ol { list-style: none; }
   gap: 14px;
 }
 
-.hero-emoji { font-size: clamp(1.8rem, 3vw, 2.4rem); flex-shrink: 0; }
+.hero-emoji { font-size: 1.6rem; flex-shrink: 0; }
 
 .hero-emoji.bounce {
   animation: bounceEmoji 0.5s var(--spring) both;
@@ -221,8 +221,8 @@ ul, ol { list-style: none; }
 .hero-prog-wrap { flex: 1; }
 
 .hero-prog-track {
-  height: 10px;
-  background: rgba(255,255,255,0.22);
+  height: 5px;
+  background: rgba(255,255,255,0.18);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -246,11 +246,10 @@ ul, ol { list-style: none; }
 
 .hero-prog-label {
   display: block;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.78);
-  font-weight: 600;
-  margin-top: 7px;
-  letter-spacing: 0.2px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+  margin-top: 5px;
 }
 
 .hero-badges {
@@ -388,7 +387,7 @@ ul, ol { list-style: none; }
 .goals-hero {
   background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 38%, #312e81 70%, #3730a3 100%);
   box-shadow: 0 8px 32px rgba(49,46,129,0.45);
-  min-height: clamp(290px, calc(50vh - 140px), 440px);
+  min-height: clamp(180px, 28vh, 250px);
 }
 
 .stars-bg {
